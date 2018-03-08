@@ -37,6 +37,8 @@ gem 'bootstrap-generators', '~> 3.3', '>= 3.3.4'
 gem 'dotenv-rails', '~> 2.2', '>= 2.2.1'
 # Auth managment
 gem 'devise', '~> 4.4', '>= 4.4.1'
+# Devise login forms style
+gem 'devise-bootstrapped'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
