@@ -2,5 +2,5 @@
 
 ```bash
 # Start dev server
-bin/rails server
+rails server
 ```
