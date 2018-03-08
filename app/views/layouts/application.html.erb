@@ -35,6 +35,17 @@
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+            <li><%= link_to current_user.to_s, edit_user_registration_path, :class => 'navbar-link' %></li>
+            <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %></li>
+          <% else %>
+            <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %></li>
+            <li><%= link_to "Sign in", new_user_session_path, :class => 'navbar-link' %></li>
+          <% end %>
+        </ul>
+
       </div>
     </div>
   </nav>
