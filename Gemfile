@@ -39,6 +39,8 @@ gem 'dotenv-rails', '~> 2.2', '>= 2.2.1'
 gem 'devise', '~> 4.4', '>= 4.4.1'
 # Devise login forms style
 gem 'devise-bootstrapped'
+gem 'record_tag_helper', '~> 1.0'
+gem "paperclip", "~> 5.2.1"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
