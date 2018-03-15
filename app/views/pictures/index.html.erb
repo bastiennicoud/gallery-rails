@@ -1,9 +1,9 @@
 <div class="page-header">
-  <%= link_to new_picture_path, class: 'btn btn-primary' do %>
+  <%= link_to new_gallery_picture_path, class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-plus"></span>
     New Picture
   <% end %>
-  <h1>Listing pictures</h1>
+  <h1>Listing pictures for <%= @gallery.title %></h1>
 </div>
 
 <div class="table-responsive">
@@ -22,9 +22,9 @@
       <%= content_tag_for(:tr, @pictures) do |picture| %>
             <td><%= picture.title %></td>
             <td><%= picture.path %></td>
-            <td><%= link_to 'Show', picture %></td>
-        <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
-        <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Show', [@gallery, picture] %></td>
+        <td><%= link_to 'Edit', edit_gallery_picture_path(@gallery, picture) %></td>
+        <td><%= link_to 'Destroy', [@gallery, picture], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
     </tbody>
   </table>
