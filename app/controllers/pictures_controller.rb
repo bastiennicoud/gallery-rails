@@ -5,7 +5,7 @@ class PicturesController < ApplicationController
   # GET /pictures
   # GET /pictures.json
   def index
-    @pictures = Picture.where(gallery_id: params[:gallery_id])
+    @pictures = @gallery.pictures
   end
 
   # GET /pictures/1
@@ -25,8 +25,7 @@ class PicturesController < ApplicationController
   # POST /pictures
   # POST /pictures.json
   def create
-    @picture = Picture.new(picture_params)
-    @picture.gallery = @gallery
+    @picture = @gallery.pictures.new(picture_params)
 
     respond_to do |format|
       if @picture.save
@@ -71,7 +70,7 @@ class PicturesController < ApplicationController
 
     # Use callbacks to share common setup or constraints between actions.
     def set_picture
-      @picture = Picture.find(params[:id])
+      @picture = @gallery.pictures.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

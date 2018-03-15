@@ -14,7 +14,6 @@
   <dt>Title:</dt>
   <dd><%= @picture.title %></dd>
 
-  <dt>Path:</dt>
-  <dd><%= @picture.path %></dd>
+  <dd><%= image_tag @picture.path.url %></dd>
 
 </dl>

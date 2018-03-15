@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180312124011) do
+ActiveRecord::Schema.define(version: 20180315135954) do
 
   create_table "galleries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
@@ -20,10 +20,13 @@ ActiveRecord::Schema.define(version: 20180312124011) do
 
   create_table "pictures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
-    t.string "path"
     t.bigint "gallery_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "path_file_name"
+    t.string "path_content_type"
+    t.integer "path_file_size"
+    t.datetime "path_updated_at"
     t.index ["gallery_id"], name: "index_pictures_on_gallery_id"
   end
 
