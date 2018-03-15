@@ -1,10 +1,11 @@
 class PicturesController < ApplicationController
+  before_action :set_gallery
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
 
   # GET /pictures
   # GET /pictures.json
   def index
-    @pictures = Picture.where()
+    @pictures = @gallery.pictures
   end
 
   # GET /pictures/1
@@ -24,11 +25,11 @@ class PicturesController < ApplicationController
   # POST /pictures
   # POST /pictures.json
   def create
-    @picture = Picture.new(picture_params)
+    @picture = @gallery.pictures.new(picture_params)
 
     respond_to do |format|
       if @picture.save
-        format.html { redirect_to @picture, notice: 'Picture was successfully created.' }
+        format.html { redirect_to [@gallery, @picture], notice: 'Picture was successfully created.' }
         format.json { render :show, status: :created, location: @picture }
       else
         format.html { render :new }
@@ -62,9 +63,14 @@ class PicturesController < ApplicationController
   end
 
   private
+    # Sets the @gallery for all routes
+    def set_gallery
+      @gallery = Gallery.find(params[:gallery_id])
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_picture
-      @picture = Picture.find(params[:id])
+      @picture = @gallery.pictures.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

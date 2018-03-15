@@ -1,9 +1,9 @@
 <div class="page-header">
-  <%= link_to pictures_path, class: 'btn btn-default' do %>
+  <%= link_to gallery_pictures_path, class: 'btn btn-default' do %>
     <span class="glyphicon glyphicon-list-alt"></span>
     Back
   <% end %>
-  <%= link_to edit_picture_path(@picture), class: 'btn btn-primary' do %>
+  <%= link_to edit_gallery_picture_path([@gallery, @picture]), class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-pencil"></span>
     Edit
   <% end %>
@@ -14,7 +14,6 @@
   <dt>Title:</dt>
   <dd><%= @picture.title %></dd>
 
-  <dt>Path:</dt>
-  <dd><%= @picture.path %></dd>
+  <dd><%= image_tag @picture.path.url %></dd>
 
 </dl>
