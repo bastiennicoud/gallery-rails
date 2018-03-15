@@ -21,8 +21,10 @@ ActiveRecord::Schema.define(version: 20180312124011) do
   create_table "pictures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
     t.string "path"
+    t.bigint "gallery_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["gallery_id"], name: "index_pictures_on_gallery_id"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -42,4 +44,5 @@ ActiveRecord::Schema.define(version: 20180312124011) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "pictures", "galleries"
 end
