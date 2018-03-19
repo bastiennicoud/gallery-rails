@@ -21,7 +21,7 @@
     <tbody>
       <%= content_tag_for(:tr, @pictures) do |picture| %>
             <td><%= picture.title %></td>
-            <td><%= picture.path %></td>
+            <td><img src="<%= picture.path.expiring_url %>"></img></td>
             <td><%= link_to 'Show', [@gallery, picture] %></td>
         <td><%= link_to 'Edit', edit_gallery_picture_path(@gallery, picture) %></td>
         <td><%= link_to 'Destroy', [@gallery, picture], method: :delete, data: { confirm: 'Are you sure?' } %></td>
