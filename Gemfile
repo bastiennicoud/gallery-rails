@@ -42,6 +42,7 @@ gem 'devise-bootstrapped'
 gem 'record_tag_helper', '~> 1.0'
 gem "paperclip", "~> 5.2.1"
 gem 'aws-sdk', '< 3.0'
+gem 'pg', '~> 0.18.4'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
